@@ -6,8 +6,10 @@
 export default {
   name: "E01Instance",
   data() {
+
+    const name = 'Kyungsu Lee'
     return {
-      message: "Vue!"
+      message: name,
     };
   }
 };
@@ -16,5 +18,7 @@ export default {
 <style scoped>
 div {
   color: blue;
+  font-size: 20px;
+  font-weight: bold;
 }
 </style>

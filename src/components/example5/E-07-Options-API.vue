@@ -17,9 +17,11 @@ export default {
   props: {
     title: {
       type: String,
-      default: 'User Information'
+      default: 'User Information',
     }
   },
+
+  // props: ['title'],
 
   data() {
     return {
