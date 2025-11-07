@@ -5,43 +5,28 @@
   </div>
 </template>
 
-<script>
+<script lang="ts" setup>
 import {ref, onMounted, onBeforeMount, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted} from 'vue';
 
-export default {
-  name: 'E12RefComponent',
-  setup() {
-    const inputField = ref(null); // DOM 요소에 대한 ref 선언
+const inputField = ref<HTMLInputElement | null>(null);
 
-    const focusInput = () => {
-      inputField.value.focus(); // ref를 통해 DOM 요소에 접근
-    };
-
-    onMounted(() => {
-      console.log(inputField); // 컴포넌트가 마운트된 후, inputField에 접근 가능
-      if(inputField.value) {
-        inputField.value.focus();
-      }
-    });
-
-    // onBeforeMount(() => console.log('beforeMount hook'));
-    // onMounted(() => console.log('mounted hook'));
-    // onBeforeUpdate(() => console.log('beforeUpdate hook'));
-    // onUpdated(() => console.log('updated hook'));
-    // onBeforeUnmount(() => console.log('beforeUnmount hook'));
-    // onUnmounted(() => console.log('unmounted hook'));
-
-    onBeforeMount(() => console.log(inputField));
-    onMounted(() => console.log(inputField));
-    onBeforeUpdate(() => console.log(inputField));
-    onUpdated(() => console.log(inputField));
-    onBeforeUnmount(() => console.log(inputField));
-    onUnmounted(() => console.log(inputField));
-
-    return {
-      inputField,
-      focusInput
-    };
+const focusInput = () => {
+  if (inputField.value) {
+    inputField.value.focus();
   }
 };
+
+onMounted(() => {
+  console.log(inputField.value);
+  if(inputField.value) {
+    inputField.value.focus();
+  }
+});
+
+onBeforeMount(() => console.log(inputField.value));
+onMounted(() => console.log(inputField.value));
+onBeforeUpdate(() => console.log(inputField.value));
+onUpdated(() => console.log(inputField.value));
+onBeforeUnmount(() => console.log(inputField.value));
+onUnmounted(() => console.log(inputField.value));
 </script>
